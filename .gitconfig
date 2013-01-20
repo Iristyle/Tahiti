@@ -1,0 +1,66 @@
+[user]
+  name = Iristyle
+	email = Iristyle@github
+[github]
+	user = Iristyle
+[core]
+	autocrlf = true
+	safecrlf = false
+	editor = 'C:/Program Files (x86)/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugins
+[merge]
+	tool = DiffMerge
+[mergetool "DiffMerge"]
+	path = C:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe
+	cmd = \"C:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe\" --merge --result=$MERGED $LOCAL $BASE $REMOTE
+[diff]
+	guitool = DiffMerge
+	tool = diffmerge
+[diff "astextplain"]
+	textconv = astextplain
+[mergetool]
+	prompt = false
+	keepBackup = false
+[difftool]
+		prompt = false
+[difftool "DiffMerge"]
+	path = C:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe
+	cmd = \"C:/Program Files/SourceGear/Common/DiffMerge/sgdm.exe\" \"$LOCAL\" \"$REMOTE\"
+[credential]
+	helper = !~/AppData/Roaming/GitCredStore/git-credential-winstore
+[mergetool "p4merge"]
+	cmd = "p4merge.exe" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+	trustExitCode = false
+[difftool "p4merge"]
+	cmd = "p4merge.exe" \"$LOCAL\" \"$REMOTE\"
+	keepBackup = false
+	trustExitCode = false
+[mergetool "diffmerge"]
+	cmd = \"C:\\Program Files\\SourceGear\\Common\\DiffMerge\\sgdm.exe\" --merge --result=\"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+	trustExitCode = true
+[difftool "diffmerge"]
+	cmd = \"C:\\Program Files\\SourceGear\\Common\\DiffMerge\\sgdm.exe\"  \"$LOCAL\" \"$REMOTE\"
+[alias]
+	aliases = config --get-regexp alias
+	amend = commit --amend
+	bl = blame -w -M -C
+	changed = status -sb
+	f = "!git ls-files | grep -i"
+	hist = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) [%an]%Creset' --abbrev-commit --date=relative
+	last = log -p --max-count=1 --word-diff
+	pick = add -p
+	stage = add
+	standup = log --since yesterday --oneline --author Iristyle
+	stats = diff --stat
+	sync = ! git fetch upstream -v && git fetch origin -v && git checkout master && git merge upstream/master
+	undo = reset head~
+	unstage = reset HEAD
+	wdiff = diff --word-diff
+	who = shortlog -s -e --
+[push]
+	default = simple
+[rebase]
+	autosquash = true
+[pack]
+	packSizeLimit = 2g
+[help]
+	format = html
